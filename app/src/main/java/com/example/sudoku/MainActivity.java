@@ -20,13 +20,16 @@ public class MainActivity extends AppCompatActivity {
         TableLayout tabla = findViewById(R.id.TableId);
 
 
-
+        //creem les files
         for (int filas = 0; filas < 9; filas++){
             TableRow row = new TableRow(this);
+            //creem les columnes
             for (int cols = 0; cols < 9; cols++){
                 Spinner spinner = new Spinner(this);
                 spinner.setBackground(null);
                 spinner.setPadding(5, 5, 5, 5);
+                spinner.setTag(R.id.fila,filas);
+                spinner.setTag(R.id.col,cols);
 
                 ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this,
                         android.R.layout.simple_spinner_item, nombres);
