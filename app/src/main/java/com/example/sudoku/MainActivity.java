@@ -19,19 +19,25 @@ public class MainActivity extends AppCompatActivity {
 
         TableLayout tabla = findViewById(R.id.TableId);
 
-        TableRow row = new TableRow(this);
 
-        for (int i = 0; i < 9; i++){
-            Spinner spinner = new Spinner(this);
-            spinner.setBackground(null);
-            ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this,
-                    android.R.layout.simple_spinner_item, nombres);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner.setPadding(5, 5, 5, 5);
-            spinner.setAdapter(adapter);
-            row.addView(spinner);
+
+        for (int filas = 0; filas < 9; filas++){
+            TableRow row = new TableRow(this);
+            for (int cols = 0; cols < 9; cols++){
+                Spinner spinner = new Spinner(this);
+                spinner.setBackground(null);
+                spinner.setPadding(5, 5, 5, 5);
+
+                ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this,
+                        android.R.layout.simple_spinner_item, nombres);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                spinner.setAdapter(adapter);
+                row.addView(spinner);
+            }
+            tabla.addView(row);
         }
 
-        tabla.addView(row);
+
     }
 }
