@@ -11,13 +11,13 @@ public class SudokuModel {
         }
     }
 
-    public int getSudokuValues(int i, int j){
+    public int getVal(int i, int j){
         return Sudoku[i][j];
     }
 
-    public boolean setSudokuValues(int i, int j, int value){
+    public boolean setVal(int i, int j, int value){
         boolean correctValue = true;
-
+        //Horizontal comprovation
         for (int x = 0; x < Sudoku[i].length; x++){
             if (x == j && value != Sudoku[i][x] && Sudoku[i][x] == 0){
                 correctValue = true;
@@ -27,6 +27,7 @@ public class SudokuModel {
             }
         }
 
+        //Vertical comprovation
         for (int y = 0; y < Sudoku[j].length; y++){
             if (j == i && value != Sudoku[j][y] && Sudoku[j][y] == 0){
                 correctValue = true;
@@ -40,4 +41,7 @@ public class SudokuModel {
         }
         return correctValue;
     }
+
+
+
 }
