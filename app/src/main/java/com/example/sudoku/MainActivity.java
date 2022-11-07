@@ -16,9 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         CharSequence[] nombres = {"1","2","3","4","5","6","7","8","9"};
 
-
         TableLayout tabla = findViewById(R.id.TableId);
-
 
         //creem les files
         for (int filas = 0; filas < 9; filas++){
