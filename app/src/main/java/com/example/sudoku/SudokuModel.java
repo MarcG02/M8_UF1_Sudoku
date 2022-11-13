@@ -3,7 +3,7 @@ package com.example.sudoku;
 public class SudokuModel {
     private int Sudoku[][] = new int[9][9];
 
-    private void setVal(){
+    private void setInitValue(){
         for (int i = 0; i < Sudoku.length; i++){
             for (int j = 0; j < Sudoku.length; j++){
                 Sudoku[i][j] = 0;
@@ -41,7 +41,5 @@ public class SudokuModel {
         }
         return correctValue;
     }
-
-
 
 }

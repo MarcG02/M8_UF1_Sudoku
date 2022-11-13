@@ -3,20 +3,23 @@ package com.example.sudoku;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
 public class MainActivity extends AppCompatActivity {
+    private static Spinner listSpinner[][] = new Spinner[9][9];
+    private static SudokuModel sm = new SudokuModel();
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         CharSequence[] nombres = {"0","1","2","3","4","5","6","7","8","9"};
+
         int cont = 0;
-        int random = (int) Math.floor(Math.random()*(9-1+1)+1);
+
         TableLayout tabla = findViewById(R.id.TableId);
 
         //creem les files
@@ -36,8 +39,27 @@ public class MainActivity extends AppCompatActivity {
 
                 spinner.setAdapter(adapter);
                 row.addView(spinner);
+                listSpinner[filas][cols] = spinner;
             }
             tabla.addView(row);
         }
+        creaPartida();
+
+    }
+
+    public void creaPartida(){
+        int totalNumbers = 20;
+
+        while (totalNumbers > 0){
+            int randomNumb = (int) Math.floor(Math.random()*(9-1+1)+1);
+            int randomRow  = (int) Math.floor(Math.random()*(8));
+            int randomCol = (int) Math.floor(Math.random()*(8));
+
+            listSpinner[randomRow][randomCol].setSelection(randomNumb);
+
+            totalNumbers--;
+
+        }
+
     }
 }
