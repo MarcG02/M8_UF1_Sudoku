@@ -55,11 +55,14 @@ public class MainActivity extends AppCompatActivity {
             int randomRow  = (int) Math.floor(Math.random()*(8));
             int randomCol = (int) Math.floor(Math.random()*(8));
 
-            listSpinner[randomRow][randomCol].setSelection(randomNumb);
-
-            totalNumbers--;
+            if(listSpinner[randomRow][randomCol].getSelectedItem().toString().equals("0") && sm.setVal(randomRow, randomCol, randomNumb)){
+                listSpinner[randomRow][randomCol].setSelection(randomNumb);
+                totalNumbers--;
+            }
 
         }
 
     }
+
+
 }

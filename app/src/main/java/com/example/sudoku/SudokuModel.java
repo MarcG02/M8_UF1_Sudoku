@@ -17,23 +17,27 @@ public class SudokuModel {
 
     public boolean setVal(int i, int j, int value){
         boolean correctValue = true;
-        //Horizontal comprovation
+        //Horizontal checkout
         for (int x = 0; x < Sudoku[i].length; x++){
-            if (x == j && value != Sudoku[i][x] && Sudoku[i][x] == 0){
+            if (x != j && value != Sudoku[i][x] && Sudoku[i][x] == 0){
                 correctValue = true;
+                return correctValue;
             }
             else{
                 correctValue = false;
+                return correctValue;
             }
         }
 
-        //Vertical comprovation
+        //Vertical checkout
         for (int y = 0; y < Sudoku[j].length; y++){
-            if (j == i && value != Sudoku[j][y] && Sudoku[j][y] == 0){
+            if (j != i && value != Sudoku[j][y] && Sudoku[j][y] == 0){
                 correctValue = true;
+                return correctValue;
             }
             else{
                 correctValue = false;
+                return correctValue;
             }
         }
         if (correctValue){
