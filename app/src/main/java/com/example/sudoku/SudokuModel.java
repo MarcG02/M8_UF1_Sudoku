@@ -1,10 +1,9 @@
 package com.example.sudoku;
 
-import android.util.Log;
-
 public class SudokuModel {
     private int Sudoku[][] = new int[9][9];
 
+    //Constructor Method
     public SudokuModel (){
         for (int i = 0; i < Sudoku.length; i++){
             for (int j = 0; j < Sudoku.length; j++){
@@ -13,12 +12,15 @@ public class SudokuModel {
         }
     }
 
+    //get values Method
     public int getVal(int i, int j){
         return Sudoku[i][j];
     }
 
+    //set values Method
     public boolean setVal(int i, int j, int value){
         boolean correctValue = true;
+
         //Horizontal validation
         for (int x = 0; x < Sudoku[i].length; x++){
             if (x != j && value == Sudoku[i][x] && Sudoku[i][x] != 0){
@@ -37,7 +39,7 @@ public class SudokuModel {
         if (correctValue){
             Sudoku[i][j] = value;
         }
-        Log.v("BUENAS", String.valueOf(correctValue));
+
         return correctValue;
     }
 
